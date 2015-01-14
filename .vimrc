@@ -39,6 +39,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
 ""Plugin 'rstacruz/sparkup'
 Plugin 'jplaut/vim-arduino-ino'
+Plugin 'hallison/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
