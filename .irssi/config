@@ -262,7 +262,7 @@ settings = {
   core = {
     real_name = "Alexander Riese";
     user_name = "alexander";
-    nick = "alexander";
+    nick = "querenker";
   };
   "fe-text" = { actlist_sort = "refnum"; };
 };

@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/alexander/movies'
+let g:netrw_dirhist_2='/Users/alexander/.vim'
+let g:netrw_dirhist_3='/Users/alexander/studium'
+let g:netrw_dirhist_4='/Users/alexander/c/test'
+let g:netrw_dirhist_5='/Users/alexander/Desktop/react-0.12.2/src'
+let g:netrw_dirhist_6='/Users/alexander/Downloads/mission3/recipes-us'
+let g:netrw_dirhist_7='/Users/alexander/Downloads/mission3/recipes'
+let g:netrw_dirhist_8='/Users/alexander/test'

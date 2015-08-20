@@ -3514,3 +3514,9 @@ zrclocal
 # Local variables:
 # mode: sh
 # End:
+#
+####################################
+# Begin changes by me:
+####################################
+#Change locale Language for R
+export LANG=en_US.UTF-8
