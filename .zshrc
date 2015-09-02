@@ -3520,3 +3520,9 @@ zrclocal
 ####################################
 #Change locale Language for R
 export LANG=en_US.UTF-8
+
+tmux attach &> /dev/null
+
+if [[ ! $TERM =~ screen ]]; then
+	exec tmux -2
+fi
