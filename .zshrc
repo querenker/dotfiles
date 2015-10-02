@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/alexander/.oh-my-zsh
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	export ZSH=/Users/alexander/.oh-my-zsh
+elif [[ "$OSTYPE" == "linux-gnu"  ]]; then
+	export ZSH=/home/alexander/.oh-my-zsh
+fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
