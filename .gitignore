@@ -1,3 +1,4 @@
 
 *.ttf
 vim/bundle/*
+.fonts/
