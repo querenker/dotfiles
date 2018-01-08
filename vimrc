@@ -8,81 +8,64 @@ let mapleader = ","
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " color scheme
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
-Plugin 'morhetz/gruvbox'
-Plugin 'blerins/flattown'
-Plugin 'trusktr/seti.vim'
-Plugin 'akmassey/vim-codeschool'
-Plugin 'chriskempson/base16-vim'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin '29decibel/codeschool-vim-theme'
-Plugin 'whatyouhide/vim-gotham'
-Plugin 'ajh17/Spacegray.vim'
-Plugin 'jnurmine/Zenburn'
-Plugin 'rizzatti/dash.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
+Plug 'blerins/flattown'
+Plug 'trusktr/seti.vim'
+Plug 'akmassey/vim-codeschool'
+Plug 'chriskempson/base16-vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug '29decibel/codeschool-vim-theme'
+Plug 'whatyouhide/vim-gotham'
+Plug 'ajh17/Spacegray.vim'
+Plug 'jnurmine/Zenburn'
+Plug 'rizzatti/dash.vim'
 
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
-Plugin 'Townk/vim-autoclose'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'mhinz/vim-startify'
-Plugin 'Yggdroot/indentLine'
-Plugin 'Railscasts-Theme-GUIand256color'
-"Plugin 'hallison/vim-markdown'
-""Plugin 'jplaut/vim-arduino-ino'
-""Plugin 'spf13/snipmate-snippets'
-""Plugin 'nathanaelkane/vim-indent-guides'
-""Plugin 'rstacruz/sparkup'
-""Plugin 'davidhalter/jedi-vim'
-""Plugin 'Valloric/YouCompleteMe'
-Plugin 'christoomey/vim-tmux-navigator'
+" Keep Plug commands between vundle#begin/end.
+" plugin on GiHub repo
+Plug 'tpope/vim-fugitive'
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'Townk/vim-autoclose'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'mhinz/vim-startify'
+" Plug 'Yggdroot/indentLine'
+Plug 'Railscasts-Theme-GUIand256color'
+"Plug 'hallison/vim-markdown'
+""Plug 'jplaut/vim-arduino-ino'
+""Plug 'spf13/snipmate-snippets'
+""Plug 'nathanaelkane/vim-indent-guides'
+""Plug 'rstacruz/sparkup'
+""Plug 'davidhalter/jedi-vim'
+"Plug 'Valloric/YouCompleteMe'
+Plug 'christoomey/vim-tmux-navigator'
+"Plug 'tpope/vim-fireplace'
+"Plug 'guns/vim-clojure-highlight'
+"Plug 'scrooloose/syntastic'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-if executable('ag')
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-          \ --ignore .git
-/          \ --ignore .svn
-          \ --ignore .hg
-          \ --ignore .DS_Store
-          \ --ignore "**/*.pyc"
-          \ -g ""'
-endif
+
+" Synaptics
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=n('~/.vim/plugged')*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -158,11 +141,21 @@ set background=dark
 colorscheme Tomorrow-Night
 
 "set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-set listchars=tab:――,trail:•,extends:>,precedes:<
+"set listchars=tab:――,trail:•,extends:>,precedes:<
 "set list
 
+set clipboard=unnamed
+
+" disable latex symbols
+let g:tex_conceal = ""
+
+
+:let g:syntastic_loc_list_height=5
+
+autocmd CompleteDone * pclose
+
 " languages to open a specific file type
-au BufNewFile,BufRead,BufEnter   *.wiki    setlocal spell    spelllang=de_de
-au BufNewFile,BufRead,BufEnter   *.md      setlocal spell    spelllang=en_us
+" au BufNewFile,BufRead,BufEnter   *.wiki    setlocal spell    spelllang=de_de
+" au BufNewFile,BufRead,BufEnter   *.md      setlocal spell    spelllang=en_us
 " au BufNewFile,BufRead,BufEnter   *.txt     setlocal spell    spelllang=de_de
-au BufNewFile,BufRead,BufEnter   README    setlocal spell    spelllang=en_us
+" au BufNewFile,BufRead,BufEnter   README    setlocal spell    spelllang=en_us
