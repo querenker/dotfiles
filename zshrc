@@ -1,15 +1,9 @@
 # Path to your oh-my-zsh installation.
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	export ZSH=/Users/alexander/.oh-my-zsh
-elif [[ "$OSTYPE" == "linux-gnu"  ]]; then
-	export ZSH=/home/alexander/.oh-my-zsh
-fi
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="intheloop"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -60,9 +54,6 @@ elif [[ "$OSTYPE" == "linux-gnu"  ]]; then
 fi
 # User configuration
 
-#export PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -85,21 +76,15 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias py3="python3"
 alias ipy="~/anaconda3/bin/ipython"
 alias update_pip="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 alias update_pip2="pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip2 install -U"
+alias emc="emacsclient"
 
 export LC_ALL=en_US.UTF-8
 export PATH="/usr/local/sbin:$PATH"
 
-# export CMAKE_PREFIX_PATH=/usr/local/opt/glbinding
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# ruby
-eval "$(rbenv init -)"
+source "$ZSH/custom/themes/spaceship.zsh-theme"

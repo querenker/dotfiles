@@ -1,8 +1,8 @@
 ######### Variables
 
-dir=~/dotfiles                    # dotfiles directory
-olddir=~/dotfiles_old             # old dotfiles backup directory
-files="zshrc vimrc vim tmux.conf spacemacs"        # list of files/folders to symlink in homedir
+dir=~/dotfiles                              # dotfiles directory
+olddir=~/dotfiles_old                       # old dotfiles backup directory
+files="zshrc vimrc tmux.conf spacemacs" # list of files/folders to symlink in homedir
 
 ##########
 
@@ -24,5 +24,5 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-#source ~/.zshrc
-#source ~/.vimrc
+source ~/.zshrc
+source ~/.vimrc
