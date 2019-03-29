@@ -2,17 +2,25 @@ set encoding=utf-8
 set termencoding=utf-8
 
 let mapleader = ","
+let maplocalleader = " "
 
 set nocompatible
 
+" Automatic Installation of Plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
-" color schemes
+" Color Schemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'trusktr/seti.vim'
 Plug 'chriskempson/vim-tomorrow-theme'
 
-" other plugins
+" Other Plugins
 Plug 'rizzatti/dash.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
@@ -22,6 +30,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'mhinz/vim-startify'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'w0rp/ale'
+Plug 'idris-hackers/idris-vim'
 
 call plug#end()
 
@@ -35,7 +44,7 @@ endif
 
 let g:airline_powerline_fonts = 1
 
-" powerline symbols
+" Powerline Symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -64,7 +73,7 @@ set autoindent
 set cmdheight=1
 set laststatus=2
 
-" jump to the last position when reopening a file
+" Jump to the last position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
